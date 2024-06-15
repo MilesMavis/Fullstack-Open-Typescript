@@ -17,8 +17,9 @@ const parseArguments = (args: string[]): Values => {
   }
 };
 
-const bmiCalculator = (height: number, weight: number): number => {
-  return (weight * 10000) / height ** 2;
+const bmiCalculator = (height: number, weight: number): string => {
+  const bmi = (weight * 10000) / height ** 2;
+  return bmiClassifier(bmi);
 };
 
 const bmiClassifier = (bmi: number): string => {
@@ -34,8 +35,7 @@ const bmiClassifier = (bmi: number): string => {
 
 try {
   const { height, weight } = parseArguments(process.argv);
-  const bmi = bmiCalculator(height, weight);
-  console.log(bmiClassifier(bmi));
+  console.log(bmiCalculator(height, weight));
 } catch (error: unknown) {
   let errorMessage = "Something went wrong: ";
   if (error instanceof Error) {
@@ -44,4 +44,4 @@ try {
   console.log(errorMessage);
 }
 
-export {};
+export {bmiCalculator};
