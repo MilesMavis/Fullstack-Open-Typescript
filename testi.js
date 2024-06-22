@@ -1,1 +1,5 @@
-console.log(process.argv[2], process.argv.slice(3))
+const a = { a: 1, b: 2 };
+
+const { moi, koi } = a;
+
+console.log(moi);
